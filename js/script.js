@@ -66,7 +66,7 @@ document.getElementById("input-btn").onclick = function () {
     } else {
       if (confirm("Xác nhận nạp?")) {
         objIndex = data.findIndex((obj) => obj.name == text);
-        data[objIndex].account += (inputPoints / 1000) * rate;
+        data[objIndex].account += inputPoints * rate * 10;
         host.profit += inputPoints - inputPoints * rate;
 
         localStorage.setItem("data", JSON.stringify(data));
