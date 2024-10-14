@@ -174,18 +174,23 @@ document.getElementById("use-btn").onclick = function () {
     } else {
       if (confirm("Xác nhận dùng?")) {
         objIndex = data.findIndex((obj) => obj.name == text);
-        data[objIndex].account -= usePoints;
 
-        localStorage.setItem("data", JSON.stringify(data));
-        localStorage.setItem("host", JSON.stringify(host));
+        if (data[objIndex].account - usePoints < 0) {
+          alert("Không đủ điểm. Cần nạp thêm!");
+        } else {
+          data[objIndex].account -= usePoints;
 
-        alert("Dùng thành công");
+          localStorage.setItem("data", JSON.stringify(data));
+          localStorage.setItem("host", JSON.stringify(host));
 
-        document.getElementById("display").innerHTML = "";
+          alert("Dùng thành công");
 
-        document.getElementById(
-          "display"
-        ).innerHTML = `Số điểm hiện tại: ${data[objIndex].account} - Số điểm dùng: ${usePoints}`;
+          document.getElementById("display").innerHTML = "";
+
+          document.getElementById(
+            "display"
+          ).innerHTML = `Số điểm hiện tại: ${data[objIndex].account} - Số điểm dùng: ${usePoints}`;
+        }
       }
     }
   }
