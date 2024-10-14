@@ -190,6 +190,8 @@ function searchPlayers() {
   const search = data.filter((item) => item.name == inputSearch);
 
   if (inputSearch == "all") {
+    document.getElementById("searchResults").innerHTML = "";
+
     data.forEach(function (element) {
       document.getElementById("searchResults").innerHTML += `
         <p style="display: inline; margin-right: 10px;">Người chơi: ${element.name}</p>
