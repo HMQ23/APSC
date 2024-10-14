@@ -74,6 +74,8 @@ document.getElementById("input-btn").onclick = function () {
 
         alert("Nạp thành công");
 
+        document.getElementById("display").innerHTML = "";
+
         document.getElementById("display").innerHTML = `Thành điểm: ${
           (inputPoints / 1000) * rate
         }`;
@@ -108,6 +110,8 @@ document.getElementById("output-btn").onclick = function () {
 
         alert("Rút thành công");
 
+        document.getElementById("display").innerHTML = "";
+
         document.getElementById("display").innerHTML = `Thành tiền: ${
           outputPoints * 1000
         }`;
@@ -140,6 +144,8 @@ document.getElementById("loan-btn").onclick = function () {
         localStorage.setItem("host", JSON.stringify(host));
 
         alert("Vay thành công");
+
+        document.getElementById("display").innerHTML = "";
 
         document.getElementById(
           "display"
@@ -175,6 +181,8 @@ document.getElementById("use-btn").onclick = function () {
 
         alert("Dùng thành công");
 
+        document.getElementById("display").innerHTML = "";
+
         document.getElementById(
           "display"
         ).innerHTML = `Số điểm hiện tại: ${data[objIndex].account} - Số điểm dùng: ${usePoints}`;
@@ -204,6 +212,8 @@ function searchPlayers() {
   } else if (search == "") {
     document.getElementById("searchResults").innerHTML = "";
   } else {
+    document.getElementById("searchResults").innerHTML = "";
+
     document.getElementById("searchResults").innerHTML = `
           <p style="display: inline; margin-right: 10px">Người chơi: ${search[0].name}</p>
           <p style="display: inline; margin-right: 10px">Số điểm*: ${search[0].account}</p>
